@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADF1E3"
+    tools:context=".Library">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="416dp"
+        android:layout_height="208dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/qalogo" />
+
+    <Button
+        android:id="@+id/economy_books"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:background="@color/colorPrimaryDark"
+        android:foreground="@drawable/economy_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="87dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="84dp"
+        android:gravity="center"
+        android:text="Economy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/programming_books"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:background="#FFAA00"
+        android:foreground="@drawable/programming_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toEndOf="@+id/math_books"
+        app:layout_constraintTop_toBottomOf="@+id/category3" />
+
+    <Button
+        android:id="@+id/managment_books"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:background="#006EFF"
+        android:foreground="@drawable/managment_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/economy_books"
+        app:layout_constraintTop_toBottomOf="@+id/category1" />
+
+    <TextView
+        android:id="@+id/category2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:text="Mathematics"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/economy_books" />
+
+    <TextView
+        android:id="@+id/category3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:text="Programming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toEndOf="@+id/category2"
+        app:layout_constraintTop_toBottomOf="@+id/managment_books" />
+
+    <TextView
+        android:id="@+id/category1"
+        android:layout_width="85dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
+        android:gravity="center"
+        android:text="Managment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toEndOf="@+id/category"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/math_books"
+        android:layout_width="88dp"
+        android:layout_height="86dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:background="#006EFF"
+        android:foreground="@drawable/math_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category2" />
+
+    <Button
+        android:id="@+id/back_2"
+        android:layout_width="86dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="388dp"
+        android:background="@drawable/back_icon"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

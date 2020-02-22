@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22618B"
+    tools:context="com.firebase.studentapp.Math_Books">
+
+    <Button
+        android:id="@+id/mathematics_review_btn"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:text="Review this books"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_mathematics_review"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/mathematics_reserve_btn1"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="40dp"
+        android:text="Add Reservation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_isbn1" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="409dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="228dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/mathematics_title1"
+        android:layout_width="268dp"
+        android:layout_height="46dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="50 Maths Ideas You Really Need to Know \n Author: Tony Crilly"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/mathematics_title2"
+        android:layout_width="268dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="64dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="New Head Start to A-Level Maths \n  Author: CGP Books"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_cancel_btn1" />
+
+    <Button
+        android:id="@+id/mathematics_cancel_btn1"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Cancel Reservation"
+        app:layout_constraintBottom_toBottomOf="@+id/divider2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/mathematics_reserve_btn1"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_info1_btn"
+        app:layout_constraintVertical_bias="0.183" />
+
+    <Button
+        android:id="@+id/mathematics_cancel_btn2"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Cancel Reservation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.645"
+        app:layout_constraintStart_toEndOf="@+id/mathematics_reserve_btn2"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_info2_btn" />
+
+    <TextView
+        android:id="@+id/mathematics_isbn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="72dp"
+        android:background="#FFFFFF"
+        android:text="ISBN:178-0747595825"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <TextView
+        android:id="@+id/mathematics_isbn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="300dp"
+        android:background="#FFFFFF"
+        android:text="ISBN:168-0747595826"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <View
+        android:layout_width="3dp"
+        android:layout_height="0dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/divider5"
+        app:layout_constraintTop_toTopOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="123dp" />
+
+    <Button
+        android:id="@+id/mathematics_info1_btn"
+        android:layout_width="82dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toEndOf="@+id/mathematics_isbn1"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_title1" />
+
+    <Button
+        android:id="@+id/mathematics_info2_btn"
+        android:layout_width="82dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="12dp"
+        android:text="Info"
+        app:layout_constraintBottom_toTopOf="@+id/mathematics_review_board"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_title2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="118dp"
+        android:layout_height="215dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:srcCompat="@drawable/math1_cover" />
+
+    <ImageView
+        android:layout_width="118dp"
+        android:layout_height="215dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/post_mathematics_review"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/math2_cover" />
+
+    <Button
+        android:id="@+id/mathematics_reserve_btn2"
+        android:layout_width="124dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:text="Add Reservation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_isbn2" />
+
+    <EditText
+        android:id="@+id/post_mathematics_review"
+        android:layout_width="166dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+    <TextView
+        android:id="@+id/mathematics_review_board"
+        android:layout_width="214dp"
+        android:layout_height="206dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="#FFFFFF"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintStart_toEndOf="@+id/post_mathematics_review"
+        app:layout_constraintTop_toBottomOf="@+id/divider5"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="409dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_reserve_btn2"
+        tools:layout_editor_absoluteX="-1dp" />
+
+    <Button
+        android:id="@+id/mathematics_read_reaviews_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Read Reviews"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toEndOf="@+id/mathematics_review_btn"
+        app:layout_constraintTop_toBottomOf="@+id/mathematics_review_board"
+        app:layout_constraintVertical_bias="0.0" />
+</android.support.constraint.ConstraintLayout>

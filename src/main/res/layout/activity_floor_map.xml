@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.firebase.studentapp.Floor_Map">
+
+    <ScrollView
+        android:id="@+id/scrollView5"
+        android:layout_width="416dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="104dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/roehampton" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/first_floor_map_button"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/roundedbutton"
+        android:text="First Floor Map"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ff_map_view"
+        app:layout_constraintTop_toBottomOf="@+id/g_map_button" />
+
+    <ImageView
+        android:id="@+id/lg_map_view"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="80dp"
+        android:background="#79F00A0A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView5"
+        app:srcCompat="@drawable/map_icon" />
+
+    <Button
+        android:id="@+id/g_map_button"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Ground Floor Map"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toEndOf="@+id/g_map_view"
+        app:layout_constraintTop_toBottomOf="@+id/lg_map_button" />
+
+    <Button
+        android:id="@+id/lg_map_button"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="316dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Lower Ground Map"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toEndOf="@+id/lg_map_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/sf_map_view"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="32dp"
+        android:background="#79E3C505"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ff_map_view"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/map_icon" />
+
+    <Button
+        android:id="@+id/second_floor_map_button"
+        android:layout_width="203dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Second Floor Map"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/sf_map_view"
+        app:layout_constraintTop_toBottomOf="@+id/first_floor_map_button" />
+
+    <ImageView
+        android:id="@+id/g_map_view"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="28dp"
+        android:background="#7924E305"
+        android:rotation="90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lg_map_view"
+        app:srcCompat="@drawable/map_icon" />
+
+
+
+    <ImageView
+        android:id="@+id/ff_map_view"
+        android:layout_width="59dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="32dp"
+        android:background="#790583E3"
+        android:rotation="-90"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/g_map_view"
+        app:srcCompat="@drawable/map_icon" />
+
+</android.support.constraint.ConstraintLayout>

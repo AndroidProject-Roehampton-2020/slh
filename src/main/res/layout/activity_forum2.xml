@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADF1E3"
+    android:foreground="@drawable/comment_frame"
+    tools:context="com.firebase.studentapp.Forum2">
+
+    <EditText
+        android:id="@+id/comment_area1"
+        android:layout_width="277dp"
+        android:layout_height="177dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:autoText="false"
+        android:background="@drawable/roundedtext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="374dp"
+        android:layout_height="370dp"
+        android:background="#ADF1E3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forum2_topic_title"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tvValue1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minLines="1"
+            android:singleLine="false"
+            android:textColor="#000000" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/post_btn1"
+        android:layout_width="94dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="52dp"
+        android:background="#111168"
+        android:foreground="@drawable/comment_frame"
+        android:text="Comment"
+        android:textColor="#ffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/comment_area1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnFetch1"
+        android:layout_width="83dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#690404"
+        android:foreground="@drawable/comment_frame"
+        android:text="Update\n Posts"
+        android:textColor="#ffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/comment_area"
+        app:layout_constraintTop_toBottomOf="@+id/post_btn1" />
+
+    <TextView
+        android:id="@+id/forum2_topic_title"
+        android:layout_width="408dp"
+        android:layout_height="129dp"
+        android:background="#ADF1E3"
+        android:foreground="@drawable/comment_frame"
+        android:gravity="center"
+        android:text="Glorify your teachers.\n Good or bad practice?"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comment_area1" />
+
+
+</android.support.constraint.ConstraintLayout>

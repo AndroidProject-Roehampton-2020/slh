@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADF1E3"
+    android:foreground="@drawable/comment_frame"
+    tools:context=".Forum1">
+
+    <EditText
+        android:id="@+id/comment_area"
+        android:layout_width="264dp"
+        android:layout_height="147dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:autoText="false"
+        android:background="@drawable/roundedtext"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="406dp"
+        android:background="#ADF1E3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/forum1_topic_title"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/tvValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ADF1E3"
+            android:minLines="1"
+            android:singleLine="false"
+            android:textColor="#000000" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/post_btn"
+        android:layout_width="121dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="56dp"
+        android:background="#111168"
+        android:foreground="@drawable/comment_frame"
+        android:text="Comment"
+        android:textColor="#ffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/comment_area"
+        app:layout_constraintTop_toBottomOf="@+id/btnFetch" />
+
+    <Button
+        android:id="@+id/btnFetch"
+        android:layout_width="122dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="44dp"
+        android:background="#690404"
+        android:foreground="@drawable/comment_frame"
+        android:text="Update Posts"
+        android:textColor="#ffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/comment_area"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/forum1_topic_title"
+        android:layout_width="408dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="8dp"
+        android:background="#ADF1E3"
+        android:foreground="@drawable/comment_frame"
+        android:gravity="center"
+        android:text="STUDENT LIFE \n How  do you learn for your exams? \n Any new idea that you can share with other students?"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comment_area" />
+
+</android.support.constraint.ConstraintLayout>

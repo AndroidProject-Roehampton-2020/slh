@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ADF1E3"
+    tools:context="com.firebase.studentapp.Time_Table">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="187dp"
+        android:layout_height="112dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/time_table" />
+
+    <Button
+        android:id="@+id/year1_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="92dp"
+        android:background="#BFF5FF00"
+        android:foreground="@drawable/year1_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_time_table" />
+
+    <Button
+        android:id="@+id/year2_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="304dp"
+        android:background="#BF57FF00"
+        android:foreground="@drawable/year2_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toEndOf="@+id/year1_button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_table2"
+        android:layout_width="47dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedtext"
+        android:gravity="center"
+        android:text="Year 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toEndOf="@+id/time_table1"
+        app:layout_constraintTop_toBottomOf="@+id/year2_button" />
+
+    <TextView
+        android:id="@+id/time_table1"
+        android:layout_width="47dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedtext"
+        android:gravity="center"
+        android:text="Year 1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year1_button" />
+
+    <Button
+        android:id="@+id/back1_button"
+        android:layout_width="111dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:background="@drawable/back_icon"
+        android:gravity="bottom|center"
+        android:text="BACK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_table2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/title_time_table"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Please select your time table"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+</android.support.constraint.ConstraintLayout>
