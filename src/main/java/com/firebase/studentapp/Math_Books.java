@@ -45,7 +45,7 @@ public class Math_Books extends AppCompatActivity {
         math_review_board = findViewById(R.id.mathematics_review_board);
         math_read_reviews = findViewById(R.id.mathematics_read_reaviews_btn);
 
-
+        final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //setting up PopUP builders
         math_info_popup1 = new AlertDialog.Builder(this);
         math_info_popup2 = new AlertDialog.Builder(this);
@@ -161,7 +161,7 @@ public class Math_Books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(post_review.getText().toString());
+                Reviews review = new Reviews(review_title,post_review.getText().toString());
                 mathematics_reviews.child(mathematics_reviews.push().getKey()).setValue(review);
 
             }//end of OnClick
@@ -175,10 +175,10 @@ public class Math_Books extends AppCompatActivity {
                 mathematics_reviews.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     //Make a database snapshot every time when  data is changing
-                    public void onDataChange(DataSnapshot dataSnapshot4) {
+                    public void onDataChange(DataSnapshot dataSnapshot5) {
                         /*Special method to fetch the data
                             I use HashMap and Array in order to fetch my data*/
-                        collect_reviews((Map<String, Object>) dataSnapshot4.getValue());
+                        collect_reviews((Map<String, Object>) dataSnapshot5.getValue());
                     }//end of onDataChange
 
                     @Override
@@ -204,12 +204,13 @@ public class Math_Books extends AppCompatActivity {
 
             //Get comments titles and messages
             Map mathematics_reviews = (Map) entry.getValue();
+            Map math_reviews_title = (Map) entry.getValue();
 
 
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
 
-            fetch_mathematics_reviews.add(mathematics_reviews.get("review") + "\n");
+            fetch_mathematics_reviews.add((String)mathematics_reviews.get("review") + math_reviews_title.get("review_title")+ "\n");
 
             /* Output the Array into a TextView (No formating is requierd)
 

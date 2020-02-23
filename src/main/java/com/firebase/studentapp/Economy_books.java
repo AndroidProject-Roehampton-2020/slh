@@ -50,7 +50,7 @@ public class Economy_books extends AppCompatActivity {
         ec_info_popup1 = new AlertDialog.Builder(this);
         ec_info_popup2 = new AlertDialog.Builder(this);
 
-
+        final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //Setting up OnClick listeners for Info Buttons:
 
         //Info1
@@ -163,7 +163,8 @@ public class Economy_books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(post_review.getText().toString());
+
+                Reviews review = new Reviews(review_title , post_review.getText().toString());
                 economy_reviews.child(economy_reviews.push().getKey()).setValue(review);
 
             }//end of OnClick
@@ -206,12 +207,12 @@ public class Economy_books extends AppCompatActivity {
 
             //Get comments titles and messages
             Map economy_reviews = (Map) entry.getValue();
-
+            Map economy_reviews_title = (Map) entry.getValue();
 
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
 
-            fetch_economy_reviews.add(economy_reviews.get("review") + "\n");
+            fetch_economy_reviews.add((String) economy_reviews.get("review") + economy_reviews_title.get("review_title") +"\n");
 
             /* Output the Array into a TextView (No formating is requierd)
 

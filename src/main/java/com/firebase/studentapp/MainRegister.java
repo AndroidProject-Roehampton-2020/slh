@@ -103,8 +103,8 @@ public class MainRegister extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Setting message manually and performing action on button click
-                ghost_popup.setMessage("Each individual has a core of underlying values that contribute to his or her system of beliefs, ideas and/or opinions. \\n The word ITEGRITY is defined as adherence to moral principles and the quality of being unimpaired. \\n The term of INTEGRITY originates from the Latin adjective INTEGER meaning whole and complete.\n" +
-                        "As you can see, INTEGRITY is a human behavior characteristic and not just a skill. \\n Student or not, you dear user are a human in the first place. \\n How do you live your life outside the school, in truth or in a lie? \\n As in everyday life, your are free to choose your actions. You willsteal this program , or learn from it??")
+                ghost_popup.setMessage("Each individual has a core of underlying values that contribute to his or her system of beliefs, ideas and/or opinions. \n The word ITEGRITY is defined as adherence to moral principles and the quality of being unimpaired. \n The term of INTEGRITY originates from the Latin adjective INTEGER meaning whole and complete.\n" +
+                        "As you can see, INTEGRITY is a human behavior characteristic and not just a skill. \n Student or not, you dear user, are a human in the first place. \n How do you live your life outside the school, in truth or in a lie? \n As in everyday life, your are free to choose your actions. You will steal this program , or learn from it??")
 
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -116,7 +116,7 @@ public class MainRegister extends AppCompatActivity {
                 //Creating dialog box
                 AlertDialog alert = ghost_popup.create();
                 //Setting the title manually
-                alert.setTitle("INTEGRITY \n IS NOT JUST \n AN ACADEMIC SKILL");
+                alert.setTitle("INTEGRITY IS NOT JUST AN ACADEMIC SKILL");
                 alert.show();
             }//end of OnClick
         });//end of onClickListener

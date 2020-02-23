@@ -49,7 +49,7 @@ public class Managment_Books extends AppCompatActivity {
         mng_info_popup1 = new AlertDialog.Builder(this);
         mng_info_popup2 = new AlertDialog.Builder(this);
 
-
+        final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //Setting up OnClick listeners for Info Buttons:
 
         //Info1
@@ -160,7 +160,7 @@ public class Managment_Books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(post_review.getText().toString());
+                Reviews review = new Reviews(review_title,post_review.getText().toString());
                 managment_reviews.child(managment_reviews.push().getKey()).setValue(review);
 
             }//end of OnClick
@@ -174,10 +174,10 @@ public class Managment_Books extends AppCompatActivity {
                 managment_reviews.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     //Make a database snapshot every time when  data is changing
-                    public void onDataChange(DataSnapshot dataSnapshot4) {
+                    public void onDataChange(DataSnapshot dataSnapshot7) {
                         /*Special method to fetch the data
                             I use HashMap and Array in order to fetch my data*/
-                        collect_reviews((Map<String, Object>) dataSnapshot4.getValue());
+                        collect_reviews((Map<String, Object>) dataSnapshot7.getValue());
                     }//end of onDataChange
 
                     @Override
@@ -203,12 +203,12 @@ public class Managment_Books extends AppCompatActivity {
 
             //Get comments titles and messages
             Map managment_reviews = (Map) entry.getValue();
-
+            Map managment_reviews_title = (Map) entry.getValue();
 
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
 
-            fetch_managment_reviews.add(managment_reviews.get("review") + "\n");
+            fetch_managment_reviews.add((String)managment_reviews.get("review") +managment_reviews_title.get("review_title") +"\n");
 
             /* Output the Array into a TextView (No formatting is required)
             *  *With no "\n" in the Array , the text will require an output format.

@@ -45,7 +45,7 @@ public class Programming_Books extends AppCompatActivity {
         prg_read_reviews = findViewById(R.id.programming_read_reaviews_btn);
 
 
-
+        final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //setting up PopUP builders
         prg_info_popup1 = new AlertDialog.Builder(this);
         prg_info_popup2 = new AlertDialog.Builder(this);
@@ -159,7 +159,7 @@ public class Programming_Books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(post_review.getText().toString());
+                Reviews review = new Reviews(review_title,post_review.getText().toString());
                 programming_reviews.child(programming_reviews.push().getKey()).setValue(review);
 
             }//end of OnClick
@@ -173,10 +173,10 @@ public class Programming_Books extends AppCompatActivity {
                 programming_reviews.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     //Make a database snapshot every time when  data is changing
-                    public void onDataChange(DataSnapshot dataSnapshot4) {
+                    public void onDataChange(DataSnapshot dataSnapshot6) {
                         /*Special method to fetch the data
                             I use HashMap and Array in order to fetch my data*/
-                        collect_reviews((Map<String, Object>) dataSnapshot4.getValue());
+                        collect_reviews((Map<String, Object>) dataSnapshot6.getValue());
                     }//end of onDataChange
 
                     @Override
@@ -202,12 +202,12 @@ public class Programming_Books extends AppCompatActivity {
 
             //Get comments titles and messages
             Map programming_reviews = (Map) entry.getValue();
-
+            Map programming_reviews_title = (Map) entry.getValue();
 
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
 
-            fetch_programming_reviews.add(programming_reviews.get("review") + "\n");
+            fetch_programming_reviews.add((String)programming_reviews.get("review") + programming_reviews_title.get("review_title") +"\n");
 
             /* Output the Array into a TextView (No formating is requierd)
 
