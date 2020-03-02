@@ -13,31 +13,25 @@ public class Message {
     //declaring the message itself
     String message;
 
+    //Making the constructor to STORE data into Firebase
     public Message(String post_title, String message) {
         this.post_title = post_title;
         this.message = message;
-    }
+                                }//end of STORE constructor
 
-    public Message() {
-    }
-//Time to get and set the data
+    //Making constructor to READ data from Firebase
+    public Message() { }//end of READ constructor
 
-
+    //Getters and Setters
     public String getPost_title() {
         return post_title;
-    }
-
-    public void setPost_title(String post_title) {
-        this.post_title = post_title;
-    }
-
-
+    }//end of getPost_title
+    public void setPost_title(String post_title) { this.post_title = post_title; }//end of setPost_title
     public String getMessage() {
         return message;
-    }
-
+    }//end of getMessage
     public void setMessage(String message) {
         this.message = message;
-    }
+    }//end of setMessage
 
 }//end of class

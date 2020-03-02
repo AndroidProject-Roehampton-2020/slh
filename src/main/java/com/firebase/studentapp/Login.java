@@ -62,11 +62,13 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Setting message manually and performing action on button click
-                pass_popup1.setMessage("For testing purpuses, there are two premade accounts\n Student id= 666 or 999 \n E-mail= www@ww.com or test@user.com \n Pass (for both accounts) = test12")
+                pass_popup1.setMessage("For testing purpuses, there are two premade accounts" +
+                        "\n Student id= 666 or 999 \n E-mail= www@ww.com or test@user.com " +
+                        "\n Pass (for both accounts) = test12")
 
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(getApplicationContext(), "This application is supporting the Univertiy ANTI-GHOSTING CAMPAIN.",
+    Toast.makeText(getApplicationContext(), "This application is supporting the Univertiy ANTI-GHOSTING CAMPAIN.",
                                         Toast.LENGTH_LONG).show();
                             }
                         });//end of PositiveButton
@@ -84,21 +86,23 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    fbAuth.signInWithEmailAndPassword(em.getText().toString(), pw.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    fbAuth.signInWithEmailAndPassword(em.getText().toString(),
+
+                            pw.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
 
                             ValueEventListener listener = new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    for (DataSnapshot dss : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dss : dataSnapshot.getChildren()) {
                                         Session.LiveSession.user = dss.getValue(User.class);
-                                    }// end of DantaSnapshot
+                           }// end of DantaSnapshot
 
                                     //If successful
-                                    if (Session.LiveSession.user != null) {
-                                        Toast.makeText(Login.this, "Welcome " + Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn(), Toast.LENGTH_LONG).show();
-                                        Toast.makeText(Login.this, "Please remember. \n Is better to be JUST ANOTHER STUDENT \n then JUST another Cheater.", Toast.LENGTH_LONG).show();
+                                if (Session.LiveSession.user != null) {
+   Toast.makeText(Login.this, "Welcome " + Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn(), Toast.LENGTH_LONG).show();
+    Toast.makeText(Login.this, "Please remember. \n Is better to be JUST ANOTHER STUDENT \n then JUST another Cheater.", Toast.LENGTH_LONG).show();
                                         main_menu_click();
                                     }//end of if
                                     //If NOT
@@ -116,17 +120,15 @@ public class Login extends AppCompatActivity {
                             };//end of EventListener
 
                             //Declaring the object witch will act as a Database Reference
-                            dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("id").equalTo(id.getText().toString());
-                            dbref.addListenerForSingleValueEvent(listener);
+       dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("id").equalTo(id.getText().toString());
+        dbref.addListenerForSingleValueEvent(listener);
                         }//end of OnSuccess
 
                     });//end of signInWithEmailAndPassword
             }//end of OnClick
         });//end of setOnClickListener
 
-
     }//end of onCreate
-
 
     //Defining the click methods
 
@@ -135,12 +137,10 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, MainRegister.class);
         startActivity(intent);
     }//end of register_click
-
     // Main-Menu click method to be used if login is successful
     public void main_menu_click() {
         Intent intent = new Intent(this, Main_Menu.class);
         startActivity(intent);
     }//end of main_menu_click
-
 
 }//end of Class

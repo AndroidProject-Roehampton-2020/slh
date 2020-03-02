@@ -34,7 +34,6 @@ public class Economy_books extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_economy_books);
-
         //Pointing each object to its correct counterpart from XML file
         ec_info1 = findViewById(R.id.economy_info1_btn);
         ec_info2 = findViewById(R.id.economy_info2_btn);
@@ -49,49 +48,44 @@ public class Economy_books extends AppCompatActivity {
         //setting up PopUP builders
         ec_info_popup1 = new AlertDialog.Builder(this);
         ec_info_popup2 = new AlertDialog.Builder(this);
-
         final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //Setting up OnClick listeners for Info Buttons:
-
         //Info1
         ec_info1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Setting message manually and performing action on button click
-                ec_info_popup1.setMessage("Presents the philosophy of value investing, which helps protect investors against the areas of possible substantial error and teaches them to develop long-term strategies with which they will be comfortable down the road. \n This book enables you to make the right decisions to protect your investments and make them a success.")
-
+                ec_info_popup1.setMessage("" +
+                        "Presents the philosophy of value investing, which helps protect investors against the areas " +
+                        "of possible substantial error and teaches them to develop long-term strategies with which they will" +
+                        " be comfortable down the road. " +
+                        "\n This book enables you to make the right decisions to protect your investments and make them a success.")
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-
+                                        Toast.LENGTH_LONG).show(); }});//end of Possitive Button
                 //Creating dialog box
                 AlertDialog alert = ec_info_popup1.create();
                 //Setting the title manually
                 alert.setTitle("The Intelligent Investor");
-                alert.show();
-            }
-        });//end of info1
-
-
+                alert.show(); }});//end of info1
         //Info2
         ec_info2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Setting message manually and performing action on button click
-                ec_info_popup2.setMessage("How to reconstruct your life? \\n Whether your dream is experiencing high-end world travel, earning a monthly five-figure income with zero management, or just living more and working less, this book teaches you how to double your income, and how to outsource your life to overseas virtual assistants for $5 per hour and do whatever you want.")
+                ec_info_popup2.setMessage(
+                        "How to reconstruct your life? " +
+                         "\n Whether your dream is experiencing high-end world travel, " +
+                         "earning a monthly five-figure income with zero management, " +
+                         "or just living more and working less, this book teaches you how to double your income," +
+                         " and how to outsource your life to overseas virtual assistants for " +
+                          "$5 per hour and do whatever you want.")
 
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-
+                                        Toast.LENGTH_LONG).show(); }});//end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = ec_info_popup2.create();
                 //Setting the title manually
@@ -99,77 +93,68 @@ public class Economy_books extends AppCompatActivity {
                 alert.show();
             }
         });//end of info2
-
-
         //Declaring the object witch will act as a Database Reference and create a new "root"
         economy_reservations = FirebaseDatabase.getInstance().getReference("_economy_reservations_");
         ec_reserv_number = economy_reservations.child(Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn());
         economy_reviews = FirebaseDatabase.getInstance().getReference("_economy_reviews_");
-
         //Creating the Add and Remove Reservation for the books in this category
-
+        //Add Reservation First Book
         ec_add1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Add maximum one reservation per ISBN
                 int value = 1;
-
                 ec_reserv_number.child("ISBN:978-0747595823").setValue("You have " + value + " reservations");
-                Toast.makeText(Economy_books.this, "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
+                Toast.makeText(Economy_books.this,
+                 "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
-
-
+        //Add Reservation Second Book
         ec_add2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Add maximum one reservation per ISBN
                 int value = 1;
-
                 ec_reserv_number.child("ISBN:978-0747595824").setValue("You have " + value + " reservations");
-                Toast.makeText(Economy_books.this, "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
+                Toast.makeText(Economy_books.this,
+                "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
-
-
+        //Cancel First Reservation
         ec_cancel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Make 0 reservation for that particular ISBN
                 int value = 0;
-
                 ec_reserv_number.child("ISBN:978-0747595823").setValue("You have " + value + " reservations");
-                Toast.makeText(Economy_books.this, "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
+                Toast.makeText(Economy_books.this,
+                "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
-
+        // Cancel Second Reservation
         ec_cancel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Make 0 reservation for that particular ISBN
                 int value = 0;
-
                 ec_reserv_number.child("ISBN:978-0747595824").setValue("You have " + value + " reservations");
-                Toast.makeText(Economy_books.this, "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
+                Toast.makeText(Economy_books.this,
+                "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
-
 
         //Setup the Review Button, so the user can post a review on this books
         ec_review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               /*Push the message into de Database under the "_" root
-                Construct the Child to containd "title" and "message"
+                Construct the Child to contain "title" and "message"
                 This will help me to create an better output
-                */
-
-                Reviews review = new Reviews(review_title , post_review.getText().toString());
+              */
+              Reviews review = new Reviews(review_title , post_review.getText().toString());
                 economy_reviews.child(economy_reviews.push().getKey()).setValue(review);
-
             }//end of OnClick
         });//end of OnClickListener
-
         //In order to see what outher are posting, please click this button
         ec_read_reviews.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,46 +168,31 @@ public class Economy_books extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot4.getValue());
                     }//end of onDataChange
-
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
                 });//end of Listener
             }//end of OnClick
         });//end of OnClickListener
-
-
     }//end of onCreate
 
 
     //Its time to fetch my data
     private void collect_reviews(Map<String, Object> users) {
-
-
         //Create an Array to fetch de data from Firebase
         ArrayList<String> fetch_economy_reviews = new ArrayList<>();
-
         //iterate through each user, ignoring their UID
         for (Map.Entry<String, Object> entry : users.entrySet()) {
-
             //Get comments titles and messages
             Map economy_reviews = (Map) entry.getValue();
             Map economy_reviews_title = (Map) entry.getValue();
-
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-
             fetch_economy_reviews.add((String) economy_reviews.get("review") + economy_reviews_title.get("review_title") +"\n");
-
             /* Output the Array into a TextView (No formating is requierd)
-
              *With no "\n" in the Array , the text will require an output format.
              */
             ec_review_board.setText(fetch_economy_reviews.toString());
-
-
         }//end of for loop
-
     }//end of collect_Comments method
-
 }//end of Class

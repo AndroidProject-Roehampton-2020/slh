@@ -21,24 +21,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
 public class MainRegister extends AppCompatActivity {
-
     //Declaring initial objects to be used inside this class
     FirebaseAuth fbAuth;
     private EditText id, fn, sn, em, pw, cpw;
     private Button btn_reg, btn_login,btn_ghost ;
     AlertDialog.Builder ghost_popup;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_register);
         //initialise our fbAuth
         fbAuth = FirebaseAuth.getInstance();
-
         //Pointing each object to its correct counterpart from XML file
         id = findViewById(R.id.et_studentid_register);
         fn = findViewById(R.id.et_fn_register);
@@ -48,14 +42,9 @@ public class MainRegister extends AppCompatActivity {
         cpw = findViewById(R.id.et_cpw_register);
         btn_login=findViewById(R.id.registration_login_btn);
         btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login_page();
-            }
-        });
+            @Override public void onClick(View v)
+            { login_page(); }});//end of onClickListener
         btn_ghost=findViewById(R.id.registration_login_btn2);
-
-
         btn_reg = findViewById(R.id.btn_register_register);
 
         //Setup Register Button
@@ -64,37 +53,32 @@ public class MainRegister extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
-                    fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pw.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            fbAuth.signInWithEmailAndPassword(em.getText().toString(), pw.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+     fbAuth.signInWithEmailAndPassword(em.getText().toString(),
+             pw.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-                                    User u = new User(fn.getText().toString(), sn.getText().toString(), id.getText().toString());
-                                    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("_user_");
-                                    dbref.child(fbAuth.getUid()).setValue(u);
-                                    fbAuth.signOut();
-                                    Toast.makeText(MainRegister.this, "Registration Successful", Toast.LENGTH_LONG).show();
+    User u = new User(fn.getText().toString(), sn.getText().toString(),
+             id.getText().toString(),em.getText().toString(),pw.getText().toString());
+    DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("_user_");
+    dbref.child(fbAuth.getUid()).setValue(u);
+    fbAuth.signOut();
+    Toast.makeText(MainRegister.this, "Registration Successful", Toast.LENGTH_LONG).show();
                                 }
                             });//end of signInWithEmailAndPassword
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            if (e instanceof FirebaseAuthInvalidCredentialsException)
-                                Toast.makeText(MainRegister.this, "Email badly formatted", Toast.LENGTH_LONG).show();
+                     if (e instanceof FirebaseAuthInvalidCredentialsException)
+                Toast.makeText(MainRegister.this, "Email badly formatted", Toast.LENGTH_LONG).show();
                         }
                     });//end of OnFailureListener
 
-
-
             }//end of onClick
         });//end of setOnClickListener
-
-
-
-
 
         //setting Ghost Popup
         ghost_popup = new AlertDialog.Builder(this);
@@ -103,8 +87,13 @@ public class MainRegister extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Setting message manually and performing action on button click
-                ghost_popup.setMessage("Each individual has a core of underlying values that contribute to his or her system of beliefs, ideas and/or opinions. \n The word ITEGRITY is defined as adherence to moral principles and the quality of being unimpaired. \n The term of INTEGRITY originates from the Latin adjective INTEGER meaning whole and complete.\n" +
-                        "As you can see, INTEGRITY is a human behavior characteristic and not just a skill. \n Student or not, you dear user, are a human in the first place. \n How do you live your life outside the school, in truth or in a lie? \n As in everyday life, your are free to choose your actions. You will steal this program , or learn from it??")
+                ghost_popup.setMessage("" +
+   "Each individual has a core of underlying values that contribute to his or her system of beliefs, ideas and/or opinions. " +
+    "\n The word ITEGRITY is defined as adherence to moral principles and the quality of being unimpaired." +
+     " \n The term of INTEGRITY originates from the Latin adjective INTEGER meaning whole and complete.\n" +
+     "As you can see, INTEGRITY is a human behavior characteristic and not just a skill. " +
+     "\n Student or not, you dear user, are a human in the first place. \n How do you live your life outside the school, in truth or in a lie? " +
+      "\n As in everyday life, your are free to choose your actions. You will steal this program , or learn from it??")
 
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
@@ -112,7 +101,6 @@ public class MainRegister extends AppCompatActivity {
                                         Toast.LENGTH_LONG).show();
                             }
                         });//end of PositiveButton
-
                 //Creating dialog box
                 AlertDialog alert = ghost_popup.create();
                 //Setting the title manually
@@ -127,5 +115,4 @@ public class MainRegister extends AppCompatActivity {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);
     } // end of login_page
-
 }//end of Class

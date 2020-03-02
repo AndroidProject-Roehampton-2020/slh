@@ -1,4 +1,5 @@
 package com.firebase.studentapp;
+//Making the necessary imports
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -18,10 +19,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
-
 public class Programming_Books extends AppCompatActivity {
-
-
+    //Declaring initial objects to be used inside this class
     Button prg_info1, prg_info2, prg_add1, prg_add2, prg_cancel1, prg_cancel2, prg_review_btn, prg_read_reviews;
     EditText post_review;
     TextView prg_review_board;
@@ -43,29 +42,23 @@ public class Programming_Books extends AppCompatActivity {
         post_review = findViewById(R.id.post_programming_review);
         prg_review_board = findViewById(R.id.programming_review_board);
         prg_read_reviews = findViewById(R.id.programming_read_reaviews_btn);
-
-
         final String review_title = Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn() + " review: ";
         //setting up PopUP builders
         prg_info_popup1 = new AlertDialog.Builder(this);
         prg_info_popup2 = new AlertDialog.Builder(this);
         //Setting up OnClick listeners for Info Buttons:
-
         //Info1
         prg_info1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Setting message manually and performing action on button click
-                prg_info_popup1.setMessage("Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. \\n Every year, countless hours and significant resources are lost because of poorly written code.\\n  But it doesn't have to be that way.")
-
+                prg_info_popup1.setMessage("Even bad code can function. But if code isn't clean, it can bring a development organization to its knees. " +
+                        "\n Every year, countless hours and significant resources are lost because of poorly written code." +
+                        "\n  But it doesn't have to be that way.")
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-
+                                        Toast.LENGTH_LONG).show(); }});// end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = prg_info_popup1.create();
                 //Setting the title manually
@@ -73,23 +66,17 @@ public class Programming_Books extends AppCompatActivity {
                 alert.show();
             }
         });//end of info1
-
-
         //Info2
         prg_info2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //Setting message manually and performing action on button click
-                prg_info_popup2.setMessage("When it comes to game programming, C++ is the name of the game.\\n If you aspire to move from game player to game creator, it all starts with learning the fundamentals of C++ and game-programming basics.")
-
+                prg_info_popup2.setMessage("When it comes to game programming, C++ is the name of the game.\n If you aspire to move from game player to game creator," +
+                        " it all starts with learning the fundamentals of C++ and game-programming basics.")
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-
+                                        Toast.LENGTH_LONG).show(); }});// end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = prg_info_popup2.create();
                 //Setting the title manually
@@ -97,61 +84,50 @@ public class Programming_Books extends AppCompatActivity {
                 alert.show();
             }
         });//end of info2
-
-
         //Declaring the object witch will act as a Database Reference and create a new "root"
         programming_reservations = FirebaseDatabase.getInstance().getReference("_programming_reservations_");
         prg_reserv_number = programming_reservations.child(Session.LiveSession.user.getFn() + " " + Session.LiveSession.user.getSn());
         programming_reviews = FirebaseDatabase.getInstance().getReference("_programming_reviews_");
-
-
         //Creating the Add and Remove Reservation for the books in this category
+        //Add Reservation First Book
         prg_add1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Add maximum one reservation per ISBN
                 int value = 1;
-
                 prg_reserv_number.child("ISBN:278-0747595825").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
-            }
-        });//end of setOnClickListener
+            }});//end of setOnClickListener
 
-
+        //Add Reservation Second Book
         prg_add2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //Add maximum one reservation per ISBN
                 int value = 1;
-
                 prg_reserv_number.child("ISBN:268-0747595876").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
-            }
-        });//end of setOnClickListener
-
-
+            }});//end of setOnClickListener
+        //Cancel FirstReservation
         prg_cancel1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Make 0 reservation for that particular ISBN
                 int value = 0;
-
                 prg_reserv_number.child("ISBN:278-0747595825").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
-
+        //Cancel Second Reservation
         prg_cancel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // Make 0 reservation for that particular ISBN
                 int value = 0;
-
                 prg_reserv_number.child("ISBN:268-0747595876").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
-            }
-        });//end of setOnClickListener
-
+            }});//end of setOnClickListener
+        //Setup the Review Button, so the user can post a review on this books
         prg_review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,10 +137,8 @@ public class Programming_Books extends AppCompatActivity {
                 */
                 Reviews review = new Reviews(review_title,post_review.getText().toString());
                 programming_reviews.child(programming_reviews.push().getKey()).setValue(review);
-
             }//end of OnClick
         });//end of OnClickListener
-
         //In order to see what outher are posting, please click this button
         prg_read_reviews.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,48 +151,30 @@ public class Programming_Books extends AppCompatActivity {
                         /*Special method to fetch the data
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot6.getValue());
-                    }//end of onDataChange
-
+                    }//end of onDataChang
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
                 });//end of Listener
             }//end of OnClick
         });//end of OnClickListener
-
-
     }//end of onCreate
-
-
     //Its time to fetch my data
     private void collect_reviews(Map<String, Object> users) {
-
-
         //Create an Array to fetch de data from Firebase
         ArrayList<String> fetch_programming_reviews = new ArrayList<>();
-
         //iterate through each user, ignoring their UID
         for (Map.Entry<String, Object> entry : users.entrySet()) {
-
             //Get comments titles and messages
             Map programming_reviews = (Map) entry.getValue();
             Map programming_reviews_title = (Map) entry.getValue();
-
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-
             fetch_programming_reviews.add((String)programming_reviews.get("review") + programming_reviews_title.get("review_title") +"\n");
-
             /* Output the Array into a TextView (No formating is requierd)
-
-             *With no "\n" in the Array , the text will require an output format.
-             */
+             With no "\n" in the Array , the text will require an output format.*/
             prg_review_board.setText(fetch_programming_reviews.toString());
-
-
         }//end of for loop
-
     }//end of collet_Comments method
-
 }//end of Class
 
