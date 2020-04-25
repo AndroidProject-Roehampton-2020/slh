@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Programming_Books extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     Button prg_info1, prg_info2, prg_add1, prg_add2, prg_cancel1, prg_cancel2, prg_review_btn, prg_read_reviews;
@@ -58,7 +59,9 @@ public class Programming_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});// end of Positive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });// end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = prg_info_popup1.create();
                 //Setting the title manually
@@ -76,7 +79,9 @@ public class Programming_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});// end of Positive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });// end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = prg_info_popup2.create();
                 //Setting the title manually
@@ -97,7 +102,8 @@ public class Programming_Books extends AppCompatActivity {
                 int value = 1;
                 prg_reserv_number.child("ISBN:278-0747595825").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
-            }});//end of setOnClickListener
+            }
+        });//end of setOnClickListener
 
         //Add Reservation Second Book
         prg_add2.setOnClickListener(new View.OnClickListener() {
@@ -107,7 +113,8 @@ public class Programming_Books extends AppCompatActivity {
                 int value = 1;
                 prg_reserv_number.child("ISBN:268-0747595876").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
-            }});//end of setOnClickListener
+            }
+        });//end of setOnClickListener
         //Cancel FirstReservation
         prg_cancel1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +133,8 @@ public class Programming_Books extends AppCompatActivity {
                 int value = 0;
                 prg_reserv_number.child("ISBN:268-0747595876").setValue("You have " + value + " reservations");
                 Toast.makeText(Programming_Books.this, "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
-            }});//end of setOnClickListener
+            }
+        });//end of setOnClickListener
         //Setup the Review Button, so the user can post a review on this books
         prg_review_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,7 +143,7 @@ public class Programming_Books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(review_title,post_review.getText().toString());
+                Reviews review = new Reviews(review_title, post_review.getText().toString());
                 programming_reviews.child(programming_reviews.push().getKey()).setValue(review);
             }//end of OnClick
         });//end of OnClickListener
@@ -152,6 +160,7 @@ public class Programming_Books extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot6.getValue());
                     }//end of onDataChang
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
@@ -159,6 +168,7 @@ public class Programming_Books extends AppCompatActivity {
             }//end of OnClick
         });//end of OnClickListener
     }//end of onCreate
+
     //Its time to fetch my data
     private void collect_reviews(Map<String, Object> users) {
         //Create an Array to fetch de data from Firebase
@@ -170,7 +180,7 @@ public class Programming_Books extends AppCompatActivity {
             Map programming_reviews_title = (Map) entry.getValue();
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-            fetch_programming_reviews.add((String)programming_reviews.get("review") + programming_reviews_title.get("review_title") +"\n");
+            fetch_programming_reviews.add((String) programming_reviews.get("review") + programming_reviews_title.get("review_title") + "\n");
             /* Output the Array into a TextView (No formating is requierd)
              With no "\n" in the Array , the text will require an output format.*/
             prg_review_board.setText(fetch_programming_reviews.toString());

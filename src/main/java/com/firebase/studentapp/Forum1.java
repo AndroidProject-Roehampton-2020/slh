@@ -16,12 +16,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Forum1 extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     Button post_btn, fetch;
     EditText message;
     DatabaseReference forum1;
     TextView post_update;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +64,7 @@ public class Forum1 extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_comments((Map<String, Object>) dataSnapshot.getValue());
                     }//end of onDataChange
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld

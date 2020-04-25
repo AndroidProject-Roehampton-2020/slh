@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Math_Books extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     Button math_info1, math_info2, math_add1, math_add2, math_cancel1, math_cancel2, math_review_btn, math_read_reviews;
@@ -26,6 +27,7 @@ public class Math_Books extends AppCompatActivity {
     TextView math_review_board;
     DatabaseReference mathematics_reservations, math_reserv_number, mathematics_reviews;
     AlertDialog.Builder math_info_popup1, math_info_popup2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,9 @@ public class Math_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show();}});// end of Positive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });// end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = math_info_popup1.create();
                 //Setting the title manually
@@ -84,7 +88,9 @@ public class Math_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});//end of Positive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });//end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = math_info_popup2.create();
                 //Setting the title manually
@@ -108,7 +114,8 @@ public class Math_Books extends AppCompatActivity {
                 math_reserv_number.child("ISBN:978-0747595823").setValue("You have " + value + " reservations");
                 Toast.makeText(Math_Books.this, "You add a reservation. " +
                         "Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
-            }});//end of setOnClickListener
+            }
+        });//end of setOnClickListener
         //Add Reservation Second Book
         math_add2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,7 +156,7 @@ public class Math_Books extends AppCompatActivity {
               /*Push the message into de Database under the "_" root
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output */
-                Reviews review = new Reviews(review_title,post_review.getText().toString());
+                Reviews review = new Reviews(review_title, post_review.getText().toString());
                 mathematics_reviews.child(mathematics_reviews.push().getKey()).setValue(review);
             }//end of OnClick
         });//end of OnClickListener
@@ -166,6 +173,7 @@ public class Math_Books extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot5.getValue());
                     }//end of onDataChange
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
@@ -186,7 +194,7 @@ public class Math_Books extends AppCompatActivity {
             Map math_reviews_title = (Map) entry.getValue();
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-    fetch_mathematics_reviews.add((String)mathematics_reviews.get("review") + math_reviews_title.get("review_title")+ "\n");
+            fetch_mathematics_reviews.add((String) mathematics_reviews.get("review") + math_reviews_title.get("review_title") + "\n");
             /* Output the Array into a TextView (No formating is requierd)
                 With no "\n" in the Array , the text will require an output format.*/
             math_review_board.setText(fetch_mathematics_reviews.toString());

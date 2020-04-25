@@ -123,7 +123,6 @@
         app:srcCompat="@drawable/map_icon" />
 
 
-
     <ImageView
         android:id="@+id/ff_map_view"
         android:layout_width="59dp"

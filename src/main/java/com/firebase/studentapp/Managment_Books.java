@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Managment_Books extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     Button mgn_info1, mgn_info2, mgn_add1, mgn_add2, mgn_cancel1, mgn_cancel2, mgn_review_btn, mgn_read_reviews;
@@ -26,6 +27,7 @@ public class Managment_Books extends AppCompatActivity {
     TextView mgn_review_board;
     DatabaseReference managment_reservations, mgn_reserv_number, managment_reviews;
     AlertDialog.Builder mng_info_popup1, mng_info_popup2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +60,9 @@ public class Managment_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});//end of Possitive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });//end of Possitive Button
                 //Creating dialog box
                 AlertDialog alert = mng_info_popup1.create();
                 //Setting the title manually
@@ -76,7 +80,9 @@ public class Managment_Books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});//end of Possitive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });//end of Possitive Button
                 //Creating dialog box
                 AlertDialog alert = mng_info_popup2.create();
                 //Setting the title manually
@@ -139,7 +145,7 @@ public class Managment_Books extends AppCompatActivity {
                 Construct the Child to containd "title" and "message"
                 This will help me to create an better output
                 */
-                Reviews review = new Reviews(review_title,post_review.getText().toString());
+                Reviews review = new Reviews(review_title, post_review.getText().toString());
                 managment_reviews.child(managment_reviews.push().getKey()).setValue(review);
             }//end of OnClick
         });//end of OnClickListener
@@ -156,6 +162,7 @@ public class Managment_Books extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot7.getValue());
                     }//end of onDataChange
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
@@ -163,6 +170,7 @@ public class Managment_Books extends AppCompatActivity {
             }//end of OnClick
         });//end of OnClickListener
     }//end of onCreate
+
     //Its time to fetch my data
     private void collect_reviews(Map<String, Object> users) {
         //Create an Array to fetch de data from Firebase
@@ -174,7 +182,7 @@ public class Managment_Books extends AppCompatActivity {
             Map managment_reviews_title = (Map) entry.getValue();
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-            fetch_managment_reviews.add((String)managment_reviews.get("review") +managment_reviews_title.get("review_title") +"\n");
+            fetch_managment_reviews.add((String) managment_reviews.get("review") + managment_reviews_title.get("review_title") + "\n");
             /* Output the Array into a TextView (No formatting is required)
             With no "\n" in the Array , the text will require an output format.*/
             mgn_review_board.setText(fetch_managment_reviews.toString());

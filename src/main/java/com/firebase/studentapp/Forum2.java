@@ -1,5 +1,6 @@
 package com.firebase.studentapp;
 // Making all imports
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,12 +16,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Map;
+
 public class Forum2 extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     Button post_btn1, fetch1;
     EditText message1;
     DatabaseReference forum2;
     TextView post_update1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,7 @@ public class Forum2 extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_comments1((Map<String, Object>) dataSnapshot1.getValue());
                     }//end of onDataChange
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld

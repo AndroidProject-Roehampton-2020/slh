@@ -1,13 +1,16 @@
 package com.firebase.studentapp;
 //Making necessary imports
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 public class Library extends AppCompatActivity {
     // Declaring private buttons to be used only by this class:
     private Button economy, maths, programming, managment, back_btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,22 +53,32 @@ public class Library extends AppCompatActivity {
             }
         });
     }//end of Override
+
     //defining click methods
     public void economy_click() {
         Intent intent = new Intent(this, Economy_books.class);
-        startActivity(intent); }//end of economy_click
+        startActivity(intent);
+    }//end of economy_click
+
     public void managment_click() {
         Intent intent = new Intent(this, Managment_Books.class);
-        startActivity(intent); }//end of managment_click
+        startActivity(intent);
+    }//end of managment_click
+
     public void maths_click() {
         Intent intent = new Intent(this, Math_Books.class);
-        startActivity(intent); }//end of math_click
+        startActivity(intent);
+    }//end of math_click
+
     public void programming_click() {
         Intent intent = new Intent(this, Programming_Books.class);
-        startActivity(intent); }//end of programming_click
+        startActivity(intent);
+    }//end of programming_click
+
     public void back_click() {
         Intent intent = new Intent(this, Main_Menu.class);
-        startActivity(intent); }//end of back_click
+        startActivity(intent);
+    }//end of back_click
 }//end of CLASS
 
 

@@ -1,4 +1,5 @@
 package com.firebase.studentapp;
+
 //Constructor Class to identify the Logged in User and use his credentials
 public class Session {
 

@@ -63,12 +63,16 @@ public class Economy_books extends AppCompatActivity {
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});//end of Possitive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });//end of Possitive Button
                 //Creating dialog box
                 AlertDialog alert = ec_info_popup1.create();
                 //Setting the title manually
                 alert.setTitle("The Intelligent Investor");
-                alert.show(); }});//end of info1
+                alert.show();
+            }
+        });//end of info1
         //Info2
         ec_info2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,16 +80,18 @@ public class Economy_books extends AppCompatActivity {
                 //Setting message manually and performing action on button click
                 ec_info_popup2.setMessage(
                         "How to reconstruct your life? " +
-                         "\n Whether your dream is experiencing high-end world travel, " +
-                         "earning a monthly five-figure income with zero management, " +
-                         "or just living more and working less, this book teaches you how to double your income," +
-                         " and how to outsource your life to overseas virtual assistants for " +
-                          "$5 per hour and do whatever you want.")
+                                "\n Whether your dream is experiencing high-end world travel, " +
+                                "earning a monthly five-figure income with zero management, " +
+                                "or just living more and working less, this book teaches you how to double your income," +
+                                " and how to outsource your life to overseas virtual assistants for " +
+                                "$5 per hour and do whatever you want.")
 
                         .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 Toast.makeText(getApplicationContext(), "Reserve?",
-                                        Toast.LENGTH_LONG).show(); }});//end of Positive Button
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });//end of Positive Button
                 //Creating dialog box
                 AlertDialog alert = ec_info_popup2.create();
                 //Setting the title manually
@@ -106,7 +112,7 @@ public class Economy_books extends AppCompatActivity {
                 int value = 1;
                 ec_reserv_number.child("ISBN:978-0747595823").setValue("You have " + value + " reservations");
                 Toast.makeText(Economy_books.this,
-                 "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
+                        "You add a reservation. Remamber that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
         //Add Reservation Second Book
@@ -117,7 +123,7 @@ public class Economy_books extends AppCompatActivity {
                 int value = 1;
                 ec_reserv_number.child("ISBN:978-0747595824").setValue("You have " + value + " reservations");
                 Toast.makeText(Economy_books.this,
-                "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
+                        "You add a reservation. Remember that you can have ONLY ONE reservation", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
         //Cancel First Reservation
@@ -128,7 +134,7 @@ public class Economy_books extends AppCompatActivity {
                 int value = 0;
                 ec_reserv_number.child("ISBN:978-0747595823").setValue("You have " + value + " reservations");
                 Toast.makeText(Economy_books.this,
-                "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
+                        "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
         // Cancel Second Reservation
@@ -139,7 +145,7 @@ public class Economy_books extends AppCompatActivity {
                 int value = 0;
                 ec_reserv_number.child("ISBN:978-0747595824").setValue("You have " + value + " reservations");
                 Toast.makeText(Economy_books.this,
-                "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
+                        "You cancel a reservation. You can now reserve a new copy.", Toast.LENGTH_LONG).show();
             }
         });//end of setOnClickListener
 
@@ -151,7 +157,7 @@ public class Economy_books extends AppCompatActivity {
                 Construct the Child to contain "title" and "message"
                 This will help me to create an better output
               */
-              Reviews review = new Reviews(review_title , post_review.getText().toString());
+                Reviews review = new Reviews(review_title, post_review.getText().toString());
                 economy_reviews.child(economy_reviews.push().getKey()).setValue(review);
             }//end of OnClick
         });//end of OnClickListener
@@ -168,6 +174,7 @@ public class Economy_books extends AppCompatActivity {
                             I use HashMap and Array in order to fetch my data*/
                         collect_reviews((Map<String, Object>) dataSnapshot4.getValue());
                     }//end of onDataChange
+
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
                     }//end of onCanceld
@@ -188,7 +195,7 @@ public class Economy_books extends AppCompatActivity {
             Map economy_reviews_title = (Map) entry.getValue();
             /*Put data in order fallowed by a new line, so I can control
             the output in the TextVeiew*/
-            fetch_economy_reviews.add((String) economy_reviews.get("review") + economy_reviews_title.get("review_title") +"\n");
+            fetch_economy_reviews.add((String) economy_reviews.get("review") + economy_reviews_title.get("review_title") + "\n");
             /* Output the Array into a TextView (No formating is requierd)
              *With no "\n" in the Array , the text will require an output format.
              */

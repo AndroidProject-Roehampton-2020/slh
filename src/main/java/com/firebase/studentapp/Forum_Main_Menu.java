@@ -1,13 +1,16 @@
 package com.firebase.studentapp;
 //Making necessary imports
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
 public class Forum_Main_Menu extends AppCompatActivity {
     //Declaring initial objects to be used inside this class
     private Button button_forum1, button_forum2, button_forum4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,15 +42,18 @@ public class Forum_Main_Menu extends AppCompatActivity {
             }
         });
     }//end of onCreate
+
     //Declare the forum methods
     public void forum1() {
         Intent intent = new Intent(this, Forum1.class);
         startActivity(intent);
     } // end of forum1
+
     public void forum2() {
         Intent intent = new Intent(this, Forum2.class);
         startActivity(intent);
     } // end of forum2
+
     public void forum4() {
         Intent intent = new Intent(this, Forum4.class);
         startActivity(intent);

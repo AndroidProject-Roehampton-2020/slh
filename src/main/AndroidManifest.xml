@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".social4"></activity>
+        <activity android:name=".MailReceive" />
+        <activity android:name=".MailSend" />
+        <activity android:name=".social4" />
         <activity android:name=".social3" />
         <activity android:name=".social2" />
         <activity android:name=".social1" />
